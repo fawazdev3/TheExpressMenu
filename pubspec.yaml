@@ -1,0 +1,121 @@
+name: test_resto
+description: "Démo Flutter de commande en ligne pour le restaurant « Le Menu Express » (vue client + vue restaurant, données en mémoire)."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.4
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # ---------------------------------------------------------------------------
+  # Images : logo complet (en-tete) et icone seule (declenchee par le script
+  # tool/generate_app_icons.ps1, utilise par flutter_launcher_icons).
+  # ---------------------------------------------------------------------------
+  assets:
+    - assets/images/
+
+  # ---------------------------------------------------------------------------
+  # Police de l'application : Poppins. En la declarant comme famille unique,
+  # elle s'applique a tous les textes (voir fontFamily dans AppTheme).
+  # Quatre graisses fournies : Regular, Medium, SemiBold et Bold.
+  # ---------------------------------------------------------------------------
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+
+# ---------------------------------------------------------------------------
+# ICONES DE L'APPLICATION
+# ---------------------------------------------------------------------------
+# Regenerer apres un changement de logo :
+#   1. remplacer assets/images/logo-icone-seule.png
+#   2. powershell -ExecutionPolicy Bypass -File tool\generate_app_icons.ps1
+#   3. dart run flutter_launcher_icons
+#
+# Le calque avant adaptatif (logo-icone-foreground.png) a ete volontairement
+# reduit a 54 % du canevas et pose sur un fond uni : le visuel reste entier
+# dans la zone sure (66 dp sur 108 dp) quel que soit le masque du fabricant,
+# et demeure lisible dans la barre des taches comme dans les notifications.
+# ---------------------------------------------------------------------------
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  # L'icone iOS ne doit contenir aucun canal alpha.
+  remove_alpha_ios: true
+  image_path: assets/images/logo-app-icon.png
+  image_path_android: assets/images/logo-app-icon.png
+  adaptive_icon_background: "#D06830"
+  adaptive_icon_foreground: assets/images/logo-icone-foreground.png
+  # Le calque avant est deja volontairement reduit (54 % du canevas), on annule
+  # donc l'inset automatique de l'outil qui le réduirait encore de 16 %.
+  adaptive_icon_foreground_inset: 0
+  min_sdk_android: 21
+  macos:
+    generate: true
+    image_path: assets/images/logo-app-icon.png
+  windows:
+    generate: true
+    image_path: assets/images/logo-app-icon.png
+    image_path_2x: assets/images/logo-app-icon.png
+  linux:
+    generate: true
+    image_path: assets/images/logo-app-icon.png
+
